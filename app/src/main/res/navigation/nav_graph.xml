@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashActivity">
+
+    <activity
+        android:id="@+id/splashActivity"
+        android:name="com.example.unimarket.activities.common.SplashActivity"
+        android:label="Splash" />
+
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.unimarket.activities.auth.LoginActivity"
+        android:label="Login" />
+
+    <activity
+        android:id="@+id/registerActivity"
+        android:name="com.example.unimarket.activities.auth.RegisterActivity"
+        android:label="Register" />
+
+    <activity
+        android:id="@+id/forgotPasswordActivity"
+        android:name="com.example.unimarket.activities.auth.ForgotPasswordActivity"
+        android:label="Forgot Password" />
+
+    <activity
+        android:id="@+id/homeActivity"
+        android:name="com.example.unimarket.activities.buyer.HomeActivity"
+        android:label="Home" />
+
+</navigation>

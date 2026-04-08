@@ -23,6 +23,7 @@ class CartActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
 
+
         lvCartItems = findViewById(R.id.lvCartItems)
         btnProceedCheckout = findViewById(R.id.btnProceedCheckout)
         btnBackCart = findViewById(R.id.btnBackCart)

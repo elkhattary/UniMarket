@@ -13,22 +13,40 @@
         android:theme="@style/Theme.UniMarket"
         tools:targetApi="31">
 
-        <activity android:name=".activities.common.ProfileActivity" />
-        <activity android:name=".activities.buyer.HomeActivity" />
-        <activity android:name=".activities.auth.ForgotPasswordActivity" />
-        <activity android:name=".activities.auth.RegisterActivity" />
-        <activity android:name=".activities.auth.LoginActivity" />
         <activity
             android:name=".activities.common.SplashActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity" android:exported="false" />
+        <activity android:name=".activities.auth.LoginActivity" />
+        <activity android:name=".activities.auth.RegisterActivity" />
+        <activity android:name=".activities.auth.ForgotPasswordActivity" />
+
+        <activity android:name=".activities.buyer.HomeActivity" />
+        <activity android:name=".activities.buyer.SearchActivity" />
+        <activity android:name=".activities.buyer.ProductDetailsActivity" />
+        <activity android:name=".activities.buyer.ReviewsActivity" />
+        <activity android:name=".activities.buyer.CartActivity" />
+        <activity android:name=".activities.buyer.CheckoutActivity" />
+
+        <activity android:name=".activities.seller.SellerDashboardActivity" />
+        <activity android:name=".activities.seller.AddProductActivity" />
+        <activity android:name=".activities.seller.EditProductActivity" />
+        <activity android:name=".activities.seller.MyProductsActivity" />
+        <activity android:name=".activities.seller.SellerVerificationActivity" />
+
+        <activity android:name=".activities.admin.AdminDashboardActivity" />
+        <activity android:name=".activities.admin.ManageReportsActivity" />
+        <activity android:name=".activities.admin.ManageReviewsActivity" />
+        <activity android:name=".activities.admin.VerifySellersActivity" />
+
+        <activity android:name=".activities.common.ProfileActivity" />
+        <activity android:name=".activities.common.SettingsActivity" />
+
     </application>
 
 </manifest>

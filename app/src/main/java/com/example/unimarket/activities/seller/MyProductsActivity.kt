@@ -1,51 +1,51 @@
 package com.example.unimarket.activities.seller
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.EditText
+import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.unimarket.R
 
-class EditProductActivity : AppCompatActivity() {
+class MyProductsActivity : AppCompatActivity() {
 
-    private lateinit var etEditProductName: EditText
-    private lateinit var etEditProductDescription: EditText
-    private lateinit var etEditProductPrice: EditText
-    private lateinit var btnUpdateProduct: Button
-    private lateinit var btnBackEditProduct: Button
+    private lateinit var lvMyProducts: ListView
+    private lateinit var btnBackMyProducts: Button
+
+    private val myProductsList = arrayListOf(
+        "Wireless Headphones - RM 129.00",
+        "Gaming Mouse - RM 89.00",
+        "Phone Case - RM 25.00",
+        "Laptop Stand - RM 55.00"
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_product)
+        setContentView(R.layout.activity_my_products)
 
-        etEditProductName = findViewById(R.id.etEditProductName)
-        etEditProductDescription = findViewById(R.id.etEditProductDescription)
-        etEditProductPrice = findViewById(R.id.etEditProductPrice)
-        btnUpdateProduct = findViewById(R.id.btnUpdateProduct)
-        btnBackEditProduct = findViewById(R.id.btnBackEditProduct)
+        lvMyProducts = findViewById(R.id.lvMyProducts)
+        btnBackMyProducts = findViewById(R.id.btnBackMyProducts)
 
-        etEditProductName.setText("Wireless Headphones")
-        etEditProductDescription.setText("High quality product from trusted seller")
-        etEditProductPrice.setText("129.00")
+        val adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_list_item_1,
+            myProductsList
+        )
+        lvMyProducts.adapter = adapter
 
-        btnUpdateProduct.setOnClickListener {
-            val name = etEditProductName.text.toString().trim()
-            val description = etEditProductDescription.text.toString().trim()
-            val price = etEditProductPrice.text.toString().trim()
+        lvMyProducts.setOnItemClickListener { _, _, position, _ ->
+            Toast.makeText(
+                this,
+                "Selected: ${myProductsList[position]}",
+                Toast.LENGTH_SHORT
+            ).show()
 
-            when {
-                name.isEmpty() -> etEditProductName.error = "Enter product name"
-                description.isEmpty() -> etEditProductDescription.error = "Enter product description"
-                price.isEmpty() -> etEditProductPrice.error = "Enter product price"
-                else -> {
-                    Toast.makeText(this, "Product updated successfully", Toast.LENGTH_SHORT).show()
-                    finish()
-                }
-            }
+            startActivity(Intent(this, EditProductActivity::class.java))
         }
 
-        btnBackEditProduct.setOnClickListener {
+        btnBackMyProducts.setOnClickListener {
             finish()
         }
     }
